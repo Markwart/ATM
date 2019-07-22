@@ -17,7 +17,6 @@ public class InputData {
 				System.out.println("Incorrectly entered card number! Try again.");
 				enterCardNumber();
 			}
-
 		} catch (Exception e) {
 			System.out.println("Incorrectly entered card number! Try again.");
 			enterCardNumber();
@@ -66,7 +65,6 @@ public class InputData {
 			System.out.println("Incorrectly entered operation number! Try again.");
 			enterOperation(bankCard);
 		}
-
 	}
 
 	public int enterCash() {
@@ -79,11 +77,10 @@ public class InputData {
 			System.out.println("Incorrectly entered sum. Try again.");
 			enterCash();
 		}
-
 		return cash;
 	}
 
-	public int continueWork(BankCard bankCard) {
+	public void continueWork(BankCard bankCard) {
 		System.out.printf("1. Yes / 2. No \n");
 
 		int operation = 0;
@@ -101,6 +98,5 @@ public class InputData {
 			System.out.println("Incorrectly entered operation! Try again.");
 			continueWork(bankCard);
 		}
-		return operation;
 	}
 }

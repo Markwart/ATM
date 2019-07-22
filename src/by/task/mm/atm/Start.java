@@ -36,6 +36,19 @@ public class Start {
 		 * cardList.get(2).getPin() + " balance: " + cardList.get(2).getBalance());
 		 */
 
+		enterNumberAndPIN(inputData, cardList);
+
+		try (BufferedWriter wr = new BufferedWriter(new FileWriter("data/personal_data.txt", false));) {
+			for (BankCard bankCard : cardList) {
+				wr.write(bankCard.getNumber() + " " + bankCard.getPin() + " " + bankCard.getBalance()
+						+ System.getProperty("line.separator"));
+			}
+			wr.flush();
+			wr.close();
+		}
+	}
+
+	private static void enterNumberAndPIN(InputData inputData, List<BankCard> cardList) {
 		String cardNumber = inputData.enterCardNumber();
 		int pin = inputData.enterPIN();
 
@@ -45,17 +58,8 @@ public class Start {
 				break;
 			} else if (bankCard.getNumber().contains(cardNumber) & pin != bankCard.getPin()) {
 				System.out.println("The card number or pin was entered incorrectly. Try again.");
-				break;
+				enterNumberAndPIN(inputData, cardList);
 			}
-		}
-
-		try (BufferedWriter wr = new BufferedWriter(new FileWriter("data/personal_data.txt", false));) {
-			for (BankCard bankCard : cardList) {
-				wr.write(bankCard.getNumber() + " " + bankCard.getPin() + " " + bankCard.getBalance()
-						+ System.getProperty("line.separator"));
-			}
-			wr.flush();
-			wr.close();
 		}
 	}
 }
