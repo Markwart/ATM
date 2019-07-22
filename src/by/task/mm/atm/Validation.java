@@ -18,5 +18,4 @@ public class Validation {
 		boolean result = cardNumber.matches("\\d{4}(\\-*)\\d{4}(\\-*)\\d{4}(\\-*)\\d{4}");
 		return result;
 	}
-
 }

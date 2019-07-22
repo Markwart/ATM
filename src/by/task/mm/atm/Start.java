@@ -32,13 +32,11 @@ public class Start {
 			}
 		}
 
-		System.out.println(
-				cardList.get(2).getNumber() + " " + cardList.get(2).getPin() + " " + cardList.get(2).getBalance());
+		/*System.out.println(
+				cardList.get(2).getNumber() + " " + cardList.get(2).getPin() + " " + cardList.get(2).getBalance());*/
 
 		String cardNumber = inputData.enterCardNumber();
 		int pin = inputData.enterPIN();
-
-		// validation.checkNumberAndPIN(cardList,cardNumber, pin);
 
 		for (BankCard bankCard : cardList) {
 			if (bankCard.getNumber().contains(cardNumber) & pin == bankCard.getPin()) {
