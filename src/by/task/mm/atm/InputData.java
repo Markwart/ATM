@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class InputData {
 
 	Scanner scanner = new Scanner(System.in);
+	Validation validation = new Validation();
 
 	public String enterCardNumber() {
 		String cardNumber = null;
@@ -12,11 +13,10 @@ public class InputData {
 		try {
 			cardNumber = scanner.next();
 
-			/*
-			 * if (!validation.validCardNumber(cardNumber)) {
-			 * System.out.println("Incorrectly entered card number! Try again.");
-			 * enterCardNumber(); }
-			 */
+			if (!validation.validCardNumber(cardNumber)) {
+				System.out.println("Incorrectly entered card number! Try again.");
+				enterCardNumber();
+			}
 
 		} catch (Exception e) {
 			System.out.println("Incorrectly entered card number! Try again.");
@@ -83,17 +83,17 @@ public class InputData {
 		return cash;
 	}
 
-	public String continueWork(BankCard bankCard) {
-		System.out.printf("Yes / No \n");
+	public int continueWork(BankCard bankCard) {
+		System.out.printf("1. Yes / 2. No \n");
 
-		String operation = null;
+		int operation = 0;
 		try {
-			operation = scanner.nextLine();
+			operation = scanner.nextInt();
 			switch (operation) {
-			case "yes":
+			case 1:
 				enterOperation(bankCard);
 				break;
-			case "no":
+			case 2:
 				System.out.println("Thank you for choosing our Bank.");
 				break;
 			}

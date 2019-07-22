@@ -2,13 +2,13 @@ package by.task.mm.atm;
 
 public class ATM {
 
-	private int currentAccount;
+	private static int currentAccount;
 
-	public int getCurrentAccount() {
+	public static int getCurrentAccount() {
 		return currentAccount;
 	}
 
-	public void setCurrentAccount(int currentAccount) {
-		this.currentAccount = currentAccount;
+	public static void setCurrentAccount(int currentAccount) {
+		ATM.currentAccount = currentAccount;
 	}
 }

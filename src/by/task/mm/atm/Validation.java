@@ -2,7 +2,6 @@ package by.task.mm.atm;
 
 public class Validation {
 
-	private ATM atm;
 
 	public boolean validAddedAmount(int cash) {
 		boolean result = (cash <= 1000000);
@@ -10,7 +9,7 @@ public class Validation {
 	}
 
 	public boolean validWithdrawnAmount(int cash, int balance) {
-		boolean result = (cash <= balance & cash <= atm.getCurrentAccount());
+		boolean result = (cash <= balance & cash <= ATM.getCurrentAccount());
 		return result;
 	}
 
