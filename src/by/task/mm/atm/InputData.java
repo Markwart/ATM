@@ -24,11 +24,16 @@ public class InputData {
 		return cardNumber;
 	}
 
-	public int enterPIN() {
-		int pin = 0;
+	public String enterPIN() {
+		String pin = null;
 		System.out.println("Please, enter pin:");
 		try {
-			pin = scanner.nextInt();
+			pin = scanner.next();
+
+			if (!validation.validPIN(pin)) {
+				System.out.println("Incorrectly entered pin! Try again.");
+				enterPIN();
+			}
 		} catch (Exception e) {
 			System.out.println("Incorrectly entered pin! Try again.");
 			enterPIN();

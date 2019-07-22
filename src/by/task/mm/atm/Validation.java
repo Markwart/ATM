@@ -2,7 +2,6 @@ package by.task.mm.atm;
 
 public class Validation {
 
-
 	public boolean validAddedAmount(int cash) {
 		boolean result = (cash <= 1000000);
 		return result;
@@ -15,6 +14,11 @@ public class Validation {
 
 	public boolean validCardNumber(String cardNumber) {
 		boolean result = cardNumber.matches("\\d{4}(\\-*)\\d{4}(\\-*)\\d{4}(\\-*)\\d{4}");
+		return result;
+	}
+
+	public boolean validPIN(String pin) {
+		boolean result = pin.matches("\\d{4}");
 		return result;
 	}
 }

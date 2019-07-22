@@ -3,7 +3,7 @@ package by.task.mm.atm;
 public class BankCard {
 
 	private String number;
-	private int pin;
+	private String pin;
 	private int balance;
 
 	public int getBalance() {
@@ -22,12 +22,13 @@ public class BankCard {
 		this.number = number;
 	}
 
-	public int getPin() {
+	public String getPin() {
 		return pin;
 	}
 
-	public void setPin(int pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
+
 
 }

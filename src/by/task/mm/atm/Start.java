@@ -25,7 +25,7 @@ public class Start {
 
 				BankCard bankCard = new BankCard();
 				bankCard.setNumber(wordsArray[0]);
-				bankCard.setPin(Integer.parseInt(wordsArray[1]));
+				bankCard.setPin(wordsArray[1]);
 				bankCard.setBalance(Integer.parseInt(wordsArray[2]));
 
 				cardList.add(bankCard);
@@ -50,13 +50,13 @@ public class Start {
 
 	private static void enterNumberAndPIN(InputData inputData, List<BankCard> cardList) {
 		String cardNumber = inputData.enterCardNumber();
-		int pin = inputData.enterPIN();
+		String pin = inputData.enterPIN();
 
 		for (BankCard bankCard : cardList) {
-			if (bankCard.getNumber().contains(cardNumber) & pin == bankCard.getPin()) {
+			if (bankCard.getNumber().contains(cardNumber) & bankCard.getPin().contains(pin)) {
 				inputData.enterOperation(bankCard);
 				break;
-			} else if (bankCard.getNumber().contains(cardNumber) & pin != bankCard.getPin()) {
+			} else if (bankCard.getNumber().contains(cardNumber) & !bankCard.getPin().contains(pin)) {
 				System.out.println("The card number or pin was entered incorrectly. Try again.");
 				enterNumberAndPIN(inputData, cardList);
 			}
